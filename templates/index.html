@@ -7,5 +7,11 @@
 </head>
 <body>
     <h1>Welcome to Ocular Disease Prediction Dashboard</h1>
+
+    <form action="/upload" method="post" enctype="multipart/form-data">
+        <label for="file">Choose an image:</label>
+        <input type="file" id="file" name="file" accept=".jpg, .jpeg, .png" required>
+        <button type="submit">Upload</button>
+    </form>
 </body>
 </html>

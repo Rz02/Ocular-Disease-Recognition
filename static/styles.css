@@ -1,79 +1,87 @@
 body {
-    font-family: Arial, sans-serif;
+    font-family: 'Arial', sans-serif;
+    /*background-color: #f4f4f4;*/
     margin: 0;
     padding: 0;
-    background-color: #f4f4f4;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    background-image: url("https://medical.rossu.edu/sites/g/files/krcnkv261/files/styles/atge_3_2_crop_md/public/migrations/media/alumni_doctor_background.webp?itok=_ssormpC");
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
 }
 
 .container {
-    max-width: 600px;
-    margin: 50px auto;
-    background-color: #fff;
-    padding: 20px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     text-align: center;
+    background-color: rgba(255, 255, 255, 0.9);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    max-width: 300px;
+    margin: auto;
+}
+
+h1 {
+    color: #333333;
 }
 
 form {
     margin-top: 20px;
 }
 
-#image-icon {
-    width: 100px;
-    height: 100px;
-    cursor: pointer;
+label {
+    font-size: 18px;
+    color: #555555;
 }
 
-#uploaded-image-title {
-    display: block;
-    margin-top: 5px;
-    font-size: 14px;
-}
-
-#no-file-uploaded {
-    display: none;
+input {
     margin-top: 10px;
-    font-size: 16px;
-}
-
-#uploaded-image {
-    display: none;
-    margin-top: 10px;
-    max-width: 100%;
-    max-height: 300px;
-}
-
-#image-preview-container {
-    text-align: center;
-    margin-top: 20px;
-}
-
-#uploaded-image {
-    display: none;
-    margin-top: 10px;
-    max-width: 100%;
-    max-height: 300px;
-}
-
-#prediction-result {
-    margin-top: 20px;
-    background-color: #d4edda;
-    color: #155724;
-    border: 1px solid #c3e6cb;
     padding: 10px;
-    border-radius: 4px;
+    width: 100%;
+    border: 1px solid #cccccc;
+    border-radius: 5px;
 }
 
 button {
     margin-top: 10px;
-    padding: 10px;
-    background-color: #007bff;
-    color: #fff;
+    padding: 10px 20px;
+    background-color: #4caf50;
+    color: #ffffff;
     border: none;
+    border-radius: 5px;
     cursor: pointer;
-    border-radius: 4px;
 }
 
 button:hover {
-    background-color: #0056b3;
+    background-color: #45a049;
+}
+
+.prediction-container {
+    margin-top: 20px;
+}
+
+h2 {
+    color: #4caf50;
+}
+
+p {
+    color: #333333;
+    font-size: 16px;
+}
+
+#image-preview {
+    max-width: 100%;
+    max-height: 200px;  /* Set the maximum height as needed */
+    margin-top: 10px;
+}
+
+#upload-progress {
+    margin-top: 10px;
+    width: 100%;
+}
+
+.hidden {
+    display: none;
 }

@@ -2,42 +2,26 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ocular disease Prediction</title>
+    <title>Retina Disease Prediction</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
 </head>
 <body>
     <div class="container">
-        <h1>Ocular disease Prediction</h1>
-
-        <!-- Image upload form -->
-        <form action="{{ url_for('upload') }}" method="post" enctype="multipart/form-data">
-            {% if has_uploaded_image %}
-                <!-- Show the uploaded image -->
-                <label for="file-input">
-                    <img id="uploaded-image" src="{{ url_for('static', filename='uploads/your_uploaded_image.jpg') }}" alt="Uploaded Image">
-                </label>
-            {% else %}
-                <!-- Show "No File Uploaded" -->
-                <div id="no-file-uploaded">No File Uploaded</div>
-            {% endif %}
-            <input id="file-input" type="file" name="file" accept=".jpg, .jpeg, .png">
-            <button type="submit">Predict</button>
+        <h1>Retina Disease Prediction</h1>
+        <form action="/upload" method="post" enctype="multipart/form-data" id="upload-form">
+            <label for="file">Choose a retina image:</label>
+            <input type="file" name="file" id="file" accept=".jpg, .jpeg, .png" required>
+            <img src="#" alt="Image Preview" id="image-preview" class="hidden">
+            <progress value="0" max="100" id="upload-progress"><!--class="hidden"--></progress>
+            <button type="submit" id="upload-button">Predict</button>
         </form>
-
-        <!-- Image preview container -->
-        <div id="image-preview-container">
-            <!-- Image preview -->
-            <img id="uploaded-image" src="" alt="Uploaded Image">
+        <div id="prediction-container">  <!--class="hidden"-->
+            <h2>Prediction:</h2>
+            <p id="prediction-text"></p>
         </div>
-
-        <!-- Prediction result -->
-        {% if prediction %}
-            <div id="prediction-result">
-                <p>Prediction Result:</p>
-                <p>{{ prediction }}</p>
-            </div>
-        {% endif %}
     </div>
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
 </body>
 </html>

@@ -3,23 +3,38 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Myopia Prediction</title>
+    <title>Ocular disease Prediction</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
 </head>
 <body>
     <div class="container">
-        <h1>Myopia Prediction</h1>
+        <h1>Ocular disease Prediction</h1>
 
-        <form action="/upload" method="post" enctype="multipart/form-data">
-            <label for="file">Upload Retina Image:</label>
-            <input type="file" name="file" accept=".jpg, .jpeg, .png" required>
-            <br>
+        <!-- Image upload form -->
+        <form action="{{ url_for('upload') }}" method="post" enctype="multipart/form-data">
+            {% if has_uploaded_image %}
+                <!-- Show the uploaded image -->
+                <label for="file-input">
+                    <img id="uploaded-image" src="{{ url_for('static', filename='uploads/your_uploaded_image.jpg') }}" alt="Uploaded Image">
+                </label>
+            {% else %}
+                <!-- Show "No File Uploaded" -->
+                <div id="no-file-uploaded">No File Uploaded</div>
+            {% endif %}
+            <input id="file-input" type="file" name="file" accept=".jpg, .jpeg, .png">
             <button type="submit">Predict</button>
         </form>
 
+        <!-- Image preview container -->
+        <div id="image-preview-container">
+            <!-- Image preview -->
+            <img id="uploaded-image" src="" alt="Uploaded Image">
+        </div>
+
+        <!-- Prediction result -->
         {% if prediction %}
-            <div class="result">
-                <h2>Prediction Result:</h2>
+            <div id="prediction-result">
+                <p>Prediction Result:</p>
                 <p>{{ prediction }}</p>
             </div>
         {% endif %}

@@ -11,7 +11,7 @@ UPLOAD_FOLDER = 'uploads'
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 
 # Load the CNN model
-model = load_model('models/test_model.h5')
+model = load_model('models/model6.h5')
 
 # Class labels for prediction
 class_labels = ['Normal', 'Diabetes', 'Glaucoma', 'Cataract', 'Age-related Macular Degeneration', 'Hypertension', 'Pathological Myopia', 'Other diseases/abnormalities']
